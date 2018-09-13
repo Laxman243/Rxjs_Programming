@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <!--Button for emitting events -->
+    <button id = "btn">Click</button>
+
+    <!--Rxjs goes here-->
+    <script>
+        // create a variable to get the element button
+        var button = document.getElementById("btn");
+
+        // create the observables  to listen the button event
+        var btnstream = Rx.Observable.fromEvent(button,'click');
+        // subscribs the observables using subscribe method
+        // subscribes methods conatins three parameters mainly , value , Error, stream completion 
+        btnstream.subscribe(
+            // first fuction which conatins the events 
+            function(e){
+                console.log(e.target.innerHTML);
+            },
+            // second function which conatin  the error message
+            function(err){
+                console.log(err);
+            },
+            // third function which signals that stream End
+            function(){
+                console.log("Stream Completed");
+            });
+
+    </script>
+</body>
+</html>

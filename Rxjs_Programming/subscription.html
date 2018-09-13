@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        /*
+        var source = Rx.Observable.from([22,44,55]);
+        var subscription = source.subscribe(x => {
+                            console.log(x);
+                        });
+        subscription.unsubscribe();
+        */
+
+        // custom unsubscribe function 
+        var source = Rx.Observable.create(function(observer) {
+                    // keep trace of interval resources
+                    var intervalID = setInterval(() =>{
+                        observer.next('hi');
+                    },1000);
+
+                // provide a way of cancelling and dispossing the interval resources
+                return function unsubscribe(){
+                    clearInterval(intervalID);
+                };
+        });
+    </script>
+</body>
+</html>

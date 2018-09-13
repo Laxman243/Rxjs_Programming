@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+      //   Rx.Observable.of('hello').merge(Rx.Observable.of('everyone')).subscribe(x => console.log(x));
+/*
+      Rx.Observable.interval(1000)
+        .merge(Rx.Observable.interval(5000))
+            .subscribe(x => console.log(x));
+            */
+/*
+            var source1 = Rx.Observable.interval(2000).map(v => 'merge1 :' + v);
+            var source2 = Rx.Observable.interval(3000).map(v => 'merge2 :' + v);
+
+            Rx.Observable.merge(source1, source2)
+                .take(10)
+                .subscribe(x => console.log(x));
+                */
+
+                // concat
+                
+            var source1 = Rx.Observable.range(0, 5).map(v => 'concat1 :' + v);
+            var source2 = Rx.Observable.interval(6, 10).map(v => 'concat2 :' + v);
+
+            Rx.Observable.concat(source1, source2)
+                .take(10)
+                .subscribe(x => console.log(x));
+    </script>
+</body>
+</html>

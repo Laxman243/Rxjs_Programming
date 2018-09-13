@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+         hello = Rx.Observable.create(function(observer) {
+             observer.next('Hello');
+             observer.next('World');
+          // observer.subscribe(val => console.log(val))  
+            
+        });
+        var b = this.hello.subscribe(val => console.log(val));
+       
+        console.log('Current time: ' + Date.now());
+
+            var source = Rx.Observable.timer(
+                         5000, /* 5 seconds */
+                         1000 /* 1 second */)
+                .timestamp();
+
+            //var subscription = source.subscribe(
+           // x => console.log(x.value + ': ' + x.timestamp));
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    
+    <script>
+        // Creates an observable sequence of 5 integers, starting from 1
+        var observer = Rx.Observable.range(1,5);
+
+        // creats subscribe to observable
+        var b = observer.subscribe(
+            x => console.log(x),
+            e => console.log(e.message),
+            () => console.log("this is end"));
+    </script>
+    <script>
+        var source = Rx.Observable(function (observer){
+            observer.next('hi');
+        });
+        var a = this.observer.subscribe(val => console.log(val)); 
+    </script>
+</body>
+</html>

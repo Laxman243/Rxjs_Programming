@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <!--Creating Observables from an array -->
+    <script>
+        var array = [22,33,44,55];
+
+        // creating observables
+        var source = Rx.Observable.from(array);
+        
+        source.subscribe(
+            val => {
+               console.log(val) 
+            },
+            error => {
+                console.log(error)
+            },
+            ()=>{
+                console.log("End Of The Streams")
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        // behaviorsubject are useful for representing "value over time"
+        var subject = new Rx.BehaviorSubject(0);
+
+         subject.subscribe(
+            x => console.log(x)
+        );
+    subject.next(1);
+    subject.next(2);
+        
+        subject.subscribe(
+            x => console.log(x)
+        );
+        subject.next(4);
+    </script>
+</body>
+</html>

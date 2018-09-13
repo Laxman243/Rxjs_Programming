@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body><!--Observables from scratch -->
+    <script>
+        var source = new Rx.Observable(observer => {
+            console.log('observables created');
+
+            // let observable emmits values
+            observer.next('paragraph');
+            observer.next('another paragraph');
+            
+            //lets throw some error
+            observer.error(new Error('Error : something went wrong'));
+
+            // set timeout for observables
+            setTimeout(() => {
+                observer.next('yet another paragraph');
+                observer.complete('completed');
+            }, 3000);
+        });
+        // subscribe
+        source.catch(err => Rx.Observable.of(err))
+        .subscribe(
+            x => {
+                console.log(x);
+            },
+            err =>{
+                console.log(err);
+            },
+            () => {
+                console.log('completed');
+            }
+        );
+    </script>
+</body>
+</html>

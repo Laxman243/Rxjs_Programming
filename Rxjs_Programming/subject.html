@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        /*
+        // create a Subject Observable
+        var subject = new Rx.Subject();
+
+        // subscribe to it 
+        var subscriber1 = subject.subscribe(x => console.log(x));
+        var subscriber2 = subject.subscribe(x => console.log(x));
+
+        // push data from subject , value will e multicasted
+        subject.next(22);
+        subject.next(44);
+        */
+
+        var subject = new Rx.Subject();
+
+        subject.subscribe(x => console.log(x));
+        subject.subscribe(x => console.log(x));
+
+        var source = Rx.Observable.from([22,44,55]);
+
+        source.subscribe(subject);
+
+    </script>
+</body>
+</html>

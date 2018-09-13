@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        var set = new Set([1,2,3,4,5]);
+
+        // Converts a Set to an observable sequence
+        var source = Rx.Observable.from(set);
+
+        // Prints out each item
+        var subscription = source.subscribe(
+        x => console.log('onNext: %s', x),
+        e => console.log('onError: %s', e),
+        () => console.log('onCompleted'));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <input type = "text" id = 'input'/>
+    <script>
+        const input = document.getElementById('input');
+
+        var source$ = Rx.Observable.fromEvent(input, 'keyup');
+        source$.subscribe(
+            function(e){
+                console.log(e.message);
+            });
+    </script>
+</body>
+</html>

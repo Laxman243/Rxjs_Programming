@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        var source = Rx.Observable.interval(1000);
+
+        var subscription1 = source.subscribe(
+                x => console.log('Observer 1: onNext: ' + x),
+                e => console.log('Observer 1: onError: ' + e.message),
+                () => console.log('Observer 1: onCompleted'));
+
+       var subscription2 = source.subscribe(
+                x => console.log('Observer 2: onNext: ' + x),
+                e => console.log('Observer 2: onError: ' + e.message),
+                () => console.log('Observer 2: onCompleted'));
+
+        setTimeout(() => {
+        subscription1.dispose();
+        subscription2.dispose();
+        }, 5000);
+
+    </script>
+</body>
+</html>

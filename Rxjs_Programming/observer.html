@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        // A Subscription essentially just has an unsubscribe() function to release resources or cancel Observable executions.
+
+        /*Subscriptions can also be put together, so that a call to an unsubscribe() of one Subscription may unsubscribe multiple Subscriptions.
+         You can do this by "adding" one subscription into another:*/
+        /*
+        var source = Rx.Observable.create(function(observer){
+                //push data
+                observer.next('hi');
+                observer.next('hello');
+        });
+        source.subscribe(
+            x => console.log(x),
+            error => console.log(e),
+            () => console.log('completed')
+        );*/
+        //
+        var observable1 = Rx.Observable.interval(400);
+        var observable2 = Rx.Observable.interval(300);
+
+        var subscription = observable1.subscribe(x => console.log('first: ' + x));
+        var childSubscription = observable2.subscribe(x => console.log('second: ' + x));
+
+        subscription.add(childSubscription);
+
+        setTimeout(() => {
+        // Unsubscribes BOTH subscription and childSubscription
+        subscription.unsubscribe();
+     }, 1000);
+    </script>
+</body>
+</html>

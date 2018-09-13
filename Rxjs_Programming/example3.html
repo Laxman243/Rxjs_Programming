@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body> <!-- Observables from events its covers the entire document because i am selection document here and appending on windows -->
+    <div id = "output"></div>
+    <script>
+        var output = document.getElementById('output');
+        var mousesource = Rx.Observable.fromEvent(document,'mousemove');
+
+        // subscriber
+        mousesource.subscribe(
+            function(e){
+                console.log(e.target.value);
+            output.append('<h1> X :'+ e.clientX + 'Y:' + e.clientY + '</h1>');
+});    
+    </script>
+</body>
+</html>

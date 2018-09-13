@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        var source = Rx.Observable.interval(500);
+        var subject = new Rx.Subject();
+        var refCounted = source.multicast(subject).refCount();
+
+        var subscriber1, subscriber2, subscriptionConnect;
+        // subscribers
+        console.log('observer A subscribed');
+        subscriber1 = refCounted.subscribe(
+            x => console.log(x)
+        );
+        setTimeout(()=> {
+            console.log('observer B subscribed');
+            subscriber2 = refCounted.subscribe(
+                x => console.log(x)
+            );
+        }, 300);
+
+        setTimeout(() => {
+            console.log('subscriber1 A unsubscribed');
+            subscriber1.unsubscribe();
+        },1200);
+
+        setTimeout(() => {
+            console.log('subscriber2 B unsubscribed');
+            subscriber2.unsubscribe();
+        },2000);
+
+    </script>
+</body>
+</html>

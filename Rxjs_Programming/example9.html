@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <script>
+        /*
+        // creating observables using Intervals , to make an end point to interval use take
+        var source = Rx.Observable.interval(1000);
+                    source.take(10);
+
+        // subscriber to Observable
+        var subscriber = source.subscribe(
+            x => {
+                console.log(x);
+            },
+            error => {
+                console.log(error);
+            },
+            () => {
+                console.log('completed');
+            });
+            */
+            // creating Observables using timer
+            /*
+            var source = Rx.Observable.timer(5000, 2000); // 5000 -> defines when page loads , 2000 difines time b/w two values, it work similar to interval
+                        source.take(10);
+            // subscribe
+            var subscriber = source.subscribe(
+                x => {
+                    console.log(x);
+                },
+                error =>{
+                    console.log(error);
+                },
+                () =>{
+                    console.log('completed');
+                });
+                */
+                // creats Observables using range
+                /*
+                var source = Rx.Observable.range(25, 100);
+                var subscriber = source.subscribe(
+                    x =>{
+                        console.log(x);
+                    },
+                    error => {
+                        console.log(error);
+                    },
+                    () => {
+                        console.log('completed')
+                    });
+                    */
+                    // Implement with Map
+                    /*
+                    var source = Rx.Observable.interval(1000);
+                    source.take(10);
+                    source.map(V => V * 2);
+                    
+                    source.subscribe(V => console.log(V));
+                    */
+                    /*
+                    const source = Rx.Observable.from(['laxman','shukla','padmaja']);
+                                  source.map(v => v.toUpperCase());
+                    source.subscribe(v => console.log(v));
+                    */
+
+                    // pluck -> get the desire values which you want
+
+                    var user = [
+                        {name : 'laxman', age : 22},
+                        {name : 'amreen', age : 21},
+                        {name : 'made', age : 20}
+                    ];
+                
+                // create observables
+                var source = Rx.Observable.from(user);
+                            source.pluck('age');
+                // subscribe
+                var subscriber = source.subscribe(
+                    x => {
+                        console.log(x);
+                    },
+                    error => {
+                        console.log(error);
+                    },
+                    () =>{
+                        console.log('completed');
+                    });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+
+</head>
+<body>
+    <button>Click Here</button>
+
+    <script>/*
+            var button = document.querySelector('button');
+             Rx.Observable.fromEvent(button, 'click')
+            // .subscribe(() => console.log('Clicked!'));
+            .subscribe(() => document.writeln('clicked'));*/
+            hello = Rx.Observable.create(function(observer) {
+             observer.next('Hello');
+             observer.next('World');
+});
+
+//output: 'Hello'...'World'
+        subscribe = this.hello.subscribe(val => console.log(val));
+         </script>
+         <script>
+         var button = document.querySelector('button');
+         Rx.Observable.fromEvent(button,'click').subscribe(()=>console.log("clickedagain"));
+         </script>
+</body>
+</html>

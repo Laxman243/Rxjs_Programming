@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+</head>
+<body>
+    <!--Creating Observables from an Map -> Map  store data in key/value pair concept -->
+    <script>
+        var set = new Map([[1,2],[3,4],[5,6]]);
+
+        // creating observables
+        var source = Rx.Observable.from(set);
+        
+        source.subscribe(
+            val => {
+               console.log(val) // taking the Objects
+
+                // iteration over object to get inner values
+              for(var i = 0; i < val.length;i++)
+              {
+                  console.log(val[i]);
+              }
+            },
+            error => {
+                console.log(error)
+            },
+            ()=>{
+                console.log("End Of The Streams")
+            });
+    </script>
+</body>
+</html>
+
