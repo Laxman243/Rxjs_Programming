@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src =" "></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var txt = "";
+                txt += "width" + $("#div1").width() + "<br>";
+                txt += "height" + $("#div1").height() + "<br>";
+            });
+        });
+    </script>
+    <style>
+      #div1 {
+          height: 120px;
+          width: 120px;
+          padding: 10%;
+          margin: 20%;
+          border: 1px solid blue;
+          background-color: lightblue;
+      }
+    </style>
+</head>
+<body>
+    <button>Display Dimensions</button>
+        <p>width() - returns the width of an element.</p>
+        <p>height() - returns the height of an element.</p>
+</body>
+</html>

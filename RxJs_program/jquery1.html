@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+   $(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide(); 
+        $("h1").click(function (){
+        $(this).hide();
+        $("h3.intro").click(function(){
+        $(this).hide();
+        $("[href]").click(function(){
+        $(this).hide();
+        $("#intro").click(function(){
+        $(this).hide();
+        });
+        });
+    });
+    });       
+  });
+});
+</script>
+</head>
+<body>
+    <p>This is a Paragraph</p>
+    <h1> This is H1</h1>
+    <h1> This is second h1</h1>
+    <p>This is second paragraph</p>
+    <h2>This is first h2</h2>
+    <h2>This is second h2</h2>
+    <p class = "intro">hello Class </p>
+    <p class ="intro">hello class 2</p>
+    <h3 id ="intro">Hello id </h3>
+    <a href="C:\inetpub\wwwroot\Jquery\iisstart.png" >Link</a>
+</body>
+</html>

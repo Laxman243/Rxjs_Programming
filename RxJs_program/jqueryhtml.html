@@ -1,0 +1,22 @@
+<Document html>
+    <html>
+        <head>JQueryHTMLPage</head>
+        <head>
+            <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+            $(document).ready(function(){
+                $("#id1").click(function(){
+                    alert("Text :" + $("#test").text());
+                });
+                $("#id2").click(function(){
+                    alert("HTML :" + $("#test").html());    
+                });
+            });
+            </script>
+        </head>
+        <body>
+                <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+            <button id = "id1">Show Text</button>
+            <button id = "id2" >Show HTML</button>
+        </body>
+    </html>

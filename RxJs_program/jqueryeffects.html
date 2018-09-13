@@ -1,0 +1,40 @@
+<Document html>
+    <html>
+        <head>
+            <title>JQueryEffectPage</title>
+                <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("#hide").click(function(){
+                            $("p").hide();
+                            $("#show").click(function(){
+                            $("p").show();
+                            });
+                        });
+                    });
+                    $(document).ready(function(){
+                        $("#id1").click(function(){
+                            $("p").hide("fast");
+                        });
+                    });
+                  
+                    $(document).ready(function(){
+                        $("#id2").click(function(){
+                            $("p").toggle();
+                        });
+                    });
+                
+                </script>
+        </head>
+        <body>
+            
+                <button id="hide">Hide</button>
+                <button id="show">Show</button>
+
+                <button id = "id1">HideEffect</button>
+                <button id = "id2">Toggle b/w hide() and show()</button>
+                <p>If you click on the "Hide" button, I will disappear.</p>
+                <p>If you click on the "Hide" button, I will disappear.</p>
+                <p>If you click on the "Hide" button, I will disappear.</p>
+        </body>
+    </html>

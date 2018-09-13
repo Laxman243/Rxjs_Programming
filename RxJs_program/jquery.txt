@@ -1,0 +1,169 @@
+Jquery Callback function is executed after the current effect is 100% finished.
+
+i)JS statements are executed line by line, however, with effects, the next line can be run even though the effect is not
+  finished. This can creats errors.
+
+ii) To prevents, you can create a callback function.
+iii)A callback function is executed after the current effect is finished.
+
+					Stop()
+					====
+
+The Jquery stop() method is used to stop an animation or effect before it is finished.
+
+The stop() method works for all Jquery effect functions, including, sliding, fading and custom animations.
+
+
+					JQuery-Chaining
+					============
+With Jquery, you can chain together actions/methods.
+
+chaining allows us to run multiple jQuery methods(on the same element) with single statements.
+
+However, there is a technique called chaining, that allows us to run multiple jQuery commands, one after the other, on the same element(s).
+
+Tip: This way, browsers do not have to find the same element(s) more than once.
+
+To chain an action, you simply append the action to the previous action.The following example chains together the css(), slideUp(), and slideDown() methods. The "p1" element first changes to red, then it slides up, and then it slides down:
+
+Tip: When chaining, the line of code could become quite long. However, jQuery is not very strict on the syntax; you can format it like you want, including line breaks and indentations.
+
+
+					JQuery - HTML
+					===========
+jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
+
+---> jQuery DOM Manipulation
+============================
+*) One very important part of jQuery is the possibility to manipulate the DOM.
+
+*)jQuery comes with a bunch of DOM related methods that make it easy to access and manipulate elements and attributes.
+
+Get Content - text(), html(), and val()
+------------------
+Three simple, but useful, jQuery methods for DOM manipulation are:
+
+text() - Sets or returns the text content of selected elements
+html() - Sets or returns the content of selected elements (including HTML markup)
+val() - Sets or returns the value of form fields
+
+
+A Callback Function for text(), html(), and val()
+All of the three jQuery methods above: text(), html(), and val(), also come with a callback function. The callback function has two parameters: the index of the current element in the list of elements selected and the original (old) value. You then return the string you wish to use as the new value from the function.
+
+The following example demonstrates text() and html() with a callback function:
+
+$("#btn1").click(function(){
+    $("#test1").text(function(i, origText){
+        return "Old text: " + origText + " New text: Hello world!
+        (index: " + i + ")"; 
+    });
+});
+
+$("#btn2").click(function(){
+    $("#test2").html(function(i, origText){
+        return "Old html: " + origText + " New html: Hello <b>world!</b>
+        (index: " + i + ")"; 
+    });
+});
+
+
+----------------------------------------------------------------------------------------------------
+Set Attributes - attr()
+================
+The jQuery attr() method is also used to set/change attribute values.
+
+The attr() method also allows you to set multiple attributes at the same time.
+
+The following example demonstrates how to set both the href and title attributes at the same time:
+
+----------------------------------------------------------------------------------------------------
+A Callback Function for attr()
+==========================
+The jQuery method attr(), also come with a callback function. The callback function has two parameters: the index of the current element in the list of elements selected and the original (old) attribute value. You then return the string you wish to use as the new attribute value from the function.
+
+The following example demonstrates attr() with a callback function:
+
+
+The following example demonstrates how to change (set) the value of the href attribute in a link:
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+				jQuery - Add Elements
+				=================
+Add New HTML Content
+We will look at four jQuery methods that are used to add new content:
+
+1) append() - Inserts content at the end of the selected elements
+2) prepend() - Inserts content at the beginning of the selected elements
+3) after() - Inserts content after the selected elements
+4) before() - Inserts content before the selected elements
+
+====================================================================
+				jQuery - Remove Elements
+				=====================
+
+With jQuery, it is easy to remove existing HTML elements.
+
+Remove Elements/Content
+To remove elements and content, there are mainly two jQuery methods:
+------------------------------------------------------------------------------------------------------------
+remove() - Removes the selected element (and its child elements)
+empty() - Removes the child elements from the selected element
+
+---------------------------------------------------------------------------------------------------
+
+				jQuery Manipulating CSS
+				===================
+1) addClass() - Adds one or more classes to the selected elements
+2) removeClass() - Removes one or more classes from the selected elements
+3) toggleClass() - Toggles between adding/removing classes from the selected elements
+4) css() - Sets or returns the style attribute
+
+
+jQuery - css() Method
+=================
+	The css() method sets or returns one or more style properties for the selected elements.
+
+
+Return a CSS Property
+================
+
+				jQuery - Dimensions
+				================
+1)With jQuery, it is easy to work with the dimensions of elements and browser window.
+2)To return the value of a specified CSS property, use the following syntax:
+
+**) jQuery has several important methods for working with dimensions:
+
+1) width()
+2) height()
+3) innerWidth()
+4) innerHeight()
+5) outerWidth()
+6) outerHeight()
+
+jQuery width() and height() Methods
+-----------------------------------------------------------------
+1)The width() method sets or returns the width of an element (excludes padding, border and margin).
+
+2)The height() method sets or returns the height of an element (excludes padding, border and margin).
+
+
+jQuery innerWidth() and innerHeight() Methods
+---------------------------------------------------------------------------------
+1)The innerWidth() method returns the width of an element (includes padding).
+
+2)The innerHeight() method returns the height of an element (includes padding).
+
+jQuery outerWidth() and outerHeight() Methods
+----------------------------------------------------------------------------------
+1)The outerWidth() method returns the width of an element (includes padding and border).
+
+2)The outerHeight() method returns the height of an element (includes padding and border).
+
+The following example returns the outer-width/height of a specified <div> element
+
+The following example returns the inner-width/height of a specified <div> element
+
+The following example returns the width and height of a specified <div> element:
